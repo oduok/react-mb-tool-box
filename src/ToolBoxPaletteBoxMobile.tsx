@@ -4,6 +4,7 @@ import toolPaletteConfig from "./ToolPaletteConfig";
 import {Color, MemberState} from "./index";
 import ToolBoxPaletteBoxMobileStyle from "./ToolBoxPaletteBoxMobile.less";
 import palette_arrow from "./palette_arrow.svg";
+import {CSSProperties} from "react";
 
 export type ToolBoxPaletteBoxProps = {
     strokeEnable: boolean,
@@ -11,6 +12,7 @@ export type ToolBoxPaletteBoxProps = {
     setMemberState: (modifyState: Partial<MemberState>) => void;
     memberState: Readonly<MemberState>;
     isToolBoxSwitched: boolean;
+    style?: CSSProperties;
 };
 export type ToolBoxMobileType = {
     name: string,
@@ -194,12 +196,8 @@ export default class ToolBoxPaletteBoxMobile extends React.Component<ToolBoxPale
                     opacity: 1,
                     display: "flex",
                 }}
+                style={this.props.style}
                 reverse={!this.props.isPaletteBoxAppear}
-                style={{
-                    bottom: 56,
-                    opacity: 0,
-                    display: "none",
-                }}
                 className={ToolBoxPaletteBoxMobileStyle["tool-box-palette-h5"]}>
                 <div className={ToolBoxPaletteBoxMobileStyle["palette-mid-box-h5"]}>
                     {this.renderColorSelector()}

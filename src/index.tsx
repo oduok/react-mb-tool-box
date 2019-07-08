@@ -11,6 +11,7 @@ import {
 } from "./ToolIconComponent";
 import ToolBoxStyles from "./ToolBox.less";
 import ToolBoxPaletteBoxMobile from "./ToolBoxPaletteBoxMobile";
+import {CSSProperties} from "react";
 
 type ApplianceDescription = {
     readonly iconView: React.ComponentClass<IconProps>;
@@ -33,6 +34,7 @@ export type MemberState = {
 export type ToolBoxProps = {
     memberState: Readonly<MemberState>;
     setMemberState: (modifyState: Partial<MemberState>) => void;
+    style?: CSSProperties;
     customerComponent?: React.ReactNode[];
     customerComponentPosition?: customerComponentPositionType;
 };
@@ -148,12 +150,13 @@ export default class ToolBox extends React.Component<ToolBoxProps, ToolBoxStates
         return [
             <ToolBoxPaletteBoxMobile
                 key={"tool-box-palette"}
+                style={this.props.style}
                 isPaletteBoxAppear={this.state.isPaletteBoxAppear}
                 isToolBoxSwitched={this.state.isToolBoxSwitched}
                 memberState={this.props.memberState}
                 setMemberState={this.props.setMemberState}
                 strokeEnable={this.state.strokeEnable}/>,
-            <div key={"tool-box-h5"} className={ToolBoxStyles["tool-box-h5"]}>
+            <div key={"tool-box-h5"} style={this.props.style} className={ToolBoxStyles["tool-box-h5"]}>
                 <div
                     className={ToolBoxStyles["tool-mid-box-h5"]}>
                     {this.addCustomerComponent(nodes)}

@@ -1,7 +1,7 @@
 {
   "name": "@netless/react-mb-tool-box",
   "types": "dist/index.d.ts",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "netless whiteboard react tool mobile box",
   "author": "alwaysmavs",
   "license": "MIT",
